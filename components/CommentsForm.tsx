@@ -6,10 +6,10 @@ const CommentsForm = ({ slug }: ICommentsForm) => {
   const [error, setError] = React.useState(false);
   const [localStorage, setLocalStorage] = React.useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = React.useState(false);
-  const commentEl = React.useRef();
-  const nameEl = React.useRef();
-  const eamilEl = React.useRef();
-  const storeDataEl = React.useRef();
+  const commentEl = React.useRef<any | null>();
+  const nameEl = React.useRef<any | null>();
+  const eamilEl = React.useRef<any | null>();
+  const storeDataEl = React.useRef<any | null>();
 
   React.useEffect(() => {
     nameEl.current.value = window.localStorage.getItem("name");
