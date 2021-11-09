@@ -1,17 +1,7 @@
 import Head from "next/head";
-import { PostCard, Categories, PostWidget } from "../components";
+import { PostCard, Categories, PostWidget, Copyright } from "../components";
+import FeaturedPosts from "../sections/FeaturedPosts";
 import { getPosts } from "../services";
-
-// const posts = [
-//   {
-//     title: "React Testing",
-//     excerpt: "Learn React Testing",
-//   },
-//   {
-//     title: "Tailwind CSS",
-//     excerpt: "Learn Tailwind CSS",
-//   },
-// ];
 
 export default function Home({ posts }) {
   return (
@@ -20,7 +10,7 @@ export default function Home({ posts }) {
         <title>CMS Blog - Aashish Singhal</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post, index) => (
             <PostCard post={post.node} key={post.title || index} />
@@ -33,6 +23,10 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
+      <div className="container mx-auto bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8">
+        <FeaturedPosts />
+      </div>
+      <Copyright />
     </div>
   );
 }
